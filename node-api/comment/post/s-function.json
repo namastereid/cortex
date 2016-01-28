@@ -1,12 +1,13 @@
 {
-  "name": "get",
-  "handler": "comment/get/handler.handler",
+  "name": "post",
+  "handler": "comment/post/handler.handler",
   "timeout": 6,
   "memorySize": 1024,
   "custom": {
     "cors": {
       "allowOrigin": "*",
-      "allowHeaders": ["Content-Type", "X-Amz-Date", "Authorization", "X-Api-Key"]
+      "allowHeaders": ["Content-Type", "X-Amz-Date", "Authorization", "X-Api-Key"],
+      "allowMethods": ["POST"]
     },
     "excludePatterns": [],
     "envVars": []
@@ -14,7 +15,7 @@
   "endpoints": [
     {
       "path": "comment",
-      "method": "GET",
+      "method": "POST",
       "authorizationType": "none",
       "apiKeyRequired": false,
       "requestParameters": {},
@@ -31,7 +32,6 @@
           "responseModels": {},
           "responseTemplates": {
             "application/json": ""
-            
           }
         }
       }
