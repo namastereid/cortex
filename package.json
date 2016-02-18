@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "serverless-cors-plugin": "^0.2.0"
+  },
+  "devDependencies": {
+    "should": "^8.2.2"
   }
 }

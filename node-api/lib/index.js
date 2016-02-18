@@ -2,7 +2,7 @@
  * Lib
  */
 
-module.exports.getComment = function(event, cb) {
+var getComment = function(event, cb) {
 
   var response = {
     comments: [
@@ -14,10 +14,22 @@ module.exports.getComment = function(event, cb) {
   return cb(null, response);
 };
 
-module.exports.postComment = function(event, cb) {
+var postComment = function(event, cb) {
 
-  console.log(event);
   var response = "success!";
 
   return cb(null, response);
 };
+
+module.exports.commentAll = function(event, cb) {
+  switch(event.httpMethod) {
+    case 'GET':
+      return getComment(event, cb);
+    case 'POST':
+      return postComment(event, cb);
+    default:
+      var errMessage = "unhandled event: " + event.httpMethod;
+      console.log(errMessage);
+      return cb(errMessage, null);
+  }
+}
