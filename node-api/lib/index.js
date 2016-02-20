@@ -27,6 +27,7 @@ module.exports.commentAll = function(event, cb) {
       return getComment(event, cb);
     case 'POST':
       return postComment(event, cb);
+      return true;
     default:
       var errMessage = "unhandled event: " + event.httpMethod;
       console.log(errMessage);
