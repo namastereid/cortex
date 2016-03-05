@@ -8,6 +8,7 @@
   "custom": {},
   "templates": {},
   "plugins": [
-    "serverless-cors-plugin"
+    "serverless-cors-plugin",
+    "serverless-client-s3"
   ]
 }
