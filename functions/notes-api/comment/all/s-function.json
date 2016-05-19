@@ -1,9 +1,16 @@
 {
-  "name": "all",
+  "name": "comment-all",
+  "runtime": "babel",
   "handler": "comment/all/handler.handler",
   "timeout": 6,
   "memorySize": 1024,
+  "customName": "$${functionName}",
   "custom": {
+    "runtime": {
+      "bable": {
+        "presets": ["es2015"]
+      }
+    },
     "cors": {
       "allowOrigin": "*",
       "allowHeaders": ["Content-Type",  "Authorization", "X-Api-Key"]

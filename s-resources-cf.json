@@ -39,8 +39,15 @@
                   "logs:PutLogEvents"
                 ],
               "Resource": "arn:aws:logs:${region}:*:*"
-              }
-            ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "*"
+              ],
+              "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-comments-${stage}"
+            }
+          ]
         },
         "Roles": [
           {
@@ -48,6 +55,36 @@
             }
           ]
       }
+    }
+  },
+  "CommentTable": {
+    "Type": "AWS::DynamoDB::Table",
+    "Properties": {
+        "TableName": "${project}-comments-${stage}",
+        "AttributeDefinitions" : [
+            {
+                "AttributeName": "UserId",
+                "AttributeType": "N"
+            },
+            {
+                "AttributeName": "Timestamp",
+                "AttributeType": "S"
+            }
+        ],
+        "KeySchema" : [
+            {
+                "AttributeName": "UserId",
+                "KeyType": "HASH"
+            },
+            {
+                "AttributeName": "Timestamp",
+                "KeyType": "RANGE"
+            }
+        ],
+        "ProvisionedThroughput" : {
+            "ReadCapacityUnits": "1",
+            "WriteCapacityUnits": "1"
+        }
     }
   },
   "Outputs": {

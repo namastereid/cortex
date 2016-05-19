@@ -8,5 +8,6 @@
       "headerParamNames" : "$input.params().header.keySet()",
       "contentTypeValue" : "$input.params().header.get('Content-Type')"
     }
-  }
+  },
+  "functionName": "${projectName}-${stage}-${name}"
 }

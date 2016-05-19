@@ -1,14 +1,14 @@
 {
   "name": "cortex",
   "version": "0.0.1",
-  "profile": "serverless-v0.1.5",
-  "location": "https://github.com/...",
-  "author": "",
-  "description": "A Slick New Serverless Project",
+  "profile": "serverless-v0.5.0",
+  "location": "https://github.com/namastereid/cortex",
+  "author": "Namaste Reid",
+  "description": "organize your information",
   "custom": {},
   "plugins": [
+    "serverless-runtime-babel",
     "serverless-cors-plugin",
-    "serverless-client-s3",
-    "serverless-resources-validation-plugin"
+    "serverless-client-s3"
   ]
 }
